@@ -15,10 +15,17 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
  * @param {React.ReactNode} children - Card content
  * @param {string} delay - CSS delay value (e.g. '0.5s') for staggered entrance
  */
-const AnimatedProjectItem = ({ children, delay, isSectionVisible }) => {
+const AnimatedProjectItem = ({ children, delay, forceAnimate }) => {
+  const [entryRef, isEntryVisible] = useScrollAnimation({
+    // Low threshold makes tall mobile cards trigger reliably.
+    threshold: 0.08,
+    rootMargin: '0px 0px -6% 0px',
+  });
+
   return (
     <div
-      className={`project-item ${isSectionVisible ? 'entry-in-view' : ''}`}
+      ref={entryRef}
+      className={`project-item ${(isEntryVisible || forceAnimate) ? 'entry-in-view' : ''}`}
       style={{ '--entry-delay': delay }}
     >
       {children}
@@ -28,7 +35,10 @@ const AnimatedProjectItem = ({ children, delay, isSectionVisible }) => {
 
 export const Project = ({ isSwedish }) => {
   // Trigger section reveal animation when it enters the viewport
-  const [ref, isVisible] = useScrollAnimation();
+  const [ref, isVisible] = useScrollAnimation({
+    threshold: 0.08,
+    rootMargin: '0px 0px -6% 0px',
+  });
   const [forceVisibleOnMobile, setForceVisibleOnMobile] = useState(false);
 
   useEffect(() => {
@@ -361,7 +371,7 @@ export const Project = ({ isSwedish }) => {
                   <AnimatedProjectItem
                     key={`${categoryIndex}-${projectIndex}`}
                     delay={`${0.38 + categoryIndex * 0.16 + projectIndex * 0.12}s`}
-                    isSectionVisible={isProjectSectionVisible}
+                    forceAnimate={forceVisibleOnMobile}
                   >
                     {/* Project header: name/client on left, date on right */}
                     <div className="project-header">
