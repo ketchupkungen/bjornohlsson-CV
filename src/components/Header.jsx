@@ -96,14 +96,26 @@ export const Header = ({ isDark, isSwedish, onToggleTheme, onToggleLanguage }) =
     }
   };
 
+  const scrollToTop = () => {
+    setIsMobileMenuOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   return (
     <header
       className={`site-header ${isAtTop ? 'header-at-top' : 'header-scrolled'} ${(isHeaderVisible || isMobileMenuOpen) ? 'header-visible' : 'header-hidden'}`}
     >
       <div className="container">
         <div className="header-content">
-          {/* Logo/branding */}
-          <div className="logo">BJÖRN OHLSSON</div>
+          {/* Logo/branding - acts as a home link */}
+          <button
+            className="logo logo-link"
+            onClick={scrollToTop}
+            type="button"
+            aria-label={isSwedish ? 'Till toppen' : 'Go to top'}
+          >
+            BJÖRN OHLSSON
+          </button>
 
           <button
             className={`mobile-menu-toggle ${isMobileMenuOpen ? 'is-open' : ''}`}
