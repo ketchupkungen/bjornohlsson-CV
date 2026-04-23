@@ -1,0 +1,31 @@
+<!--
+  index.html - HTML entry point for the React application
+  
+  This is the root HTML file that Vite serves. React renders into the #root div.
+  - Includes font preconnection for "Be Vietnam Pro" for faster loading
+  - Sets viewport for responsive mobile support
+  - Links the React application via main.jsx module script
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bjornohlsson-CV</title>
+    
+    <!-- Preconnect to Google Fonts CDN for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Load Be Vietnam Pro font with multiple weights for styling flexibility -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- React will render the entire app into this div -->
+    <div id="root"></div>
+    
+    <!-- Load the React application as an ES module -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
