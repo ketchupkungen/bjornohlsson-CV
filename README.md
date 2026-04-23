@@ -103,6 +103,32 @@ npm run preview
 - `public/` is for static assets copied directly to `dist/` without bundling/import processing.
 - `dist/` is generated build output and can be recreated at any time with `npm run build`.
 
+## Publish To GitHub Pages
+
+1. Ensure repository settings use **Settings -> Pages -> Source: GitHub Actions**.
+2. Commit and push changes to `main`.
+3. Open **Actions** tab and wait for **Deploy to GitHub Pages** workflow to complete.
+4. Open **Settings -> Pages** to find the published URL.
+
+## GitHub Pages Troubleshooting Checklist
+
+- Confirm workflow exists at `.github/workflows/deploy.yml`.
+- Confirm workflow triggers on `push` to `main`.
+- Confirm repo default branch is `main`.
+- Confirm `npm run build` succeeds locally.
+- If `Setup Pages` fails on first run, ensure `actions/configure-pages` uses:
+
+```yaml
+with:
+	enablement: true
+```
+
+- If deploy runs but page is broken, verify `base` in `vite.config.js` matches your hosting path:
+	- Project site (`https://<user>.github.io/<repo>/`) -> `base: '/<repo>/'`
+	- Custom domain (`https://cv.example.com`) -> `base: '/'`
+- If custom domain is used, add `public/CNAME` with the exact domain value.
+- After fixes, push a new commit or run the workflow manually with `workflow_dispatch`.
+
 ## License
 
 © 2026 bjornohlsson-CV. All rights reserved.
