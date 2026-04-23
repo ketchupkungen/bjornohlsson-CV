@@ -14,17 +14,10 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
  * @param {React.ReactNode} children - Card content
  * @param {string} delay - CSS delay value (e.g. '0.5s') for staggered entrance
  */
-const AnimatedProjectItem = ({ children, delay }) => {
-  const [entryRef, isEntryVisible] = useScrollAnimation({
-    // Lower threshold so very tall cards still trigger on small screens.
-    threshold: 0.08,
-    rootMargin: '0px 0px -6% 0px',
-  });
-
+const AnimatedProjectItem = ({ children, delay, isSectionVisible }) => {
   return (
     <div
-      ref={entryRef}
-      className={`project-item ${isEntryVisible ? 'entry-in-view' : ''}`}
+      className={`project-item ${isSectionVisible ? 'entry-in-view' : ''}`}
       style={{ '--entry-delay': delay }}
     >
       {children}
@@ -342,6 +335,7 @@ export const Project = ({ isSwedish }) => {
                   <AnimatedProjectItem
                     key={`${categoryIndex}-${projectIndex}`}
                     delay={`${0.38 + categoryIndex * 0.16 + projectIndex * 0.12}s`}
+                    isSectionVisible={isVisible}
                   >
                     {/* Project header: name/client on left, date on right */}
                     <div className="project-header">
