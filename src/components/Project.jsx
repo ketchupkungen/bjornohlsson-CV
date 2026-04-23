@@ -16,7 +16,8 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
  */
 const AnimatedProjectItem = ({ children, delay }) => {
   const [entryRef, isEntryVisible] = useScrollAnimation({
-    threshold: 0.25,
+    // Lower threshold so very tall cards still trigger on small screens.
+    threshold: 0.08,
     rootMargin: '0px 0px -6% 0px',
   });
 
