@@ -189,9 +189,6 @@ export const Header = ({ isDark, isSwedish, onToggleTheme, onToggleLanguage }) =
           <button className="mobile-nav-link" onClick={() => scrollToSection('skills')} type="button">
             {isSwedish ? 'FÄRDIGHETER' : 'SKILLS'}
           </button>
-          <button className="mobile-nav-link" onClick={() => scrollToSection('certifications-courses')} type="button">
-            {isSwedish ? 'CERTIFIERINGAR & KURSER' : 'CERTIFICATIONS & COURSES'}
-          </button>
         </nav>
 
         <div className="mobile-menu-actions">

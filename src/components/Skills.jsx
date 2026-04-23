@@ -78,6 +78,8 @@ export const Skills = ({ isSwedish }) => {
             'Revit',
             'Rhino Grasshopper',
             'Blender',
+            'Unity',
+            'Unreal Engine',
             'ArcGIS',
             'QGIS',
             'Photoshop'
@@ -170,6 +172,8 @@ export const Skills = ({ isSwedish }) => {
             'Revit',
             'Rhino Grasshopper',
             'Blender',
+            'Unity',
+            'Unreal Engine',
             'ArcGIS',
             'QGIS',
             'Photoshop'
