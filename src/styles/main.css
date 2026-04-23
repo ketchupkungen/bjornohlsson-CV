@@ -479,6 +479,7 @@ a {
   color: inherit;
   cursor: pointer;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .logo-link:focus-visible {
@@ -519,6 +520,7 @@ a {
   background: transparent;
   color: var(--text-primary);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -663,6 +665,7 @@ a {
   background: none;
   color: #000000;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   font-size: clamp(13px, 2.2dvh, 17px);
   line-height: 1.2;
   letter-spacing: 0.08em;
