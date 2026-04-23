@@ -6,6 +6,7 @@
  * - Skills-style subcategories
  */
 
+import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 /**
@@ -28,6 +29,31 @@ const AnimatedProjectItem = ({ children, delay, isSectionVisible }) => {
 export const Project = ({ isSwedish }) => {
   // Trigger section reveal animation when it enters the viewport
   const [ref, isVisible] = useScrollAnimation();
+  const [forceVisibleOnMobile, setForceVisibleOnMobile] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      return;
+    }
+
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    // Fallback for mobile browsers where IntersectionObserver occasionally
+    // misses this section, which otherwise leaves it at opacity: 0.
+    if (window.innerWidth > 840) {
+      return;
+    }
+
+    const fallbackTimer = window.setTimeout(() => {
+      setForceVisibleOnMobile(true);
+    }, 1200);
+
+    return () => window.clearTimeout(fallbackTimer);
+  }, [isVisible]);
+
+  const isProjectSectionVisible = isVisible || forceVisibleOnMobile;
 
   // Project data organized by category (bilingual: Swedish / English)
   const projectCategories = isSwedish
@@ -319,7 +345,7 @@ export const Project = ({ isSwedish }) => {
       ];
 
   return (
-    <section id="project" ref={ref} className={`section deferred-render ${isVisible ? 'appear-active' : 'appear'}`}>
+    <section id="project" ref={ref} className={`section deferred-render ${isProjectSectionVisible ? 'appear-active' : 'appear'}`}>
       <div className="container">
         <h2 className="section-title">{isSwedish ? 'UTVALDA PROJEKT' : 'SELECTED PROJECTS'}</h2>
 
@@ -335,7 +361,7 @@ export const Project = ({ isSwedish }) => {
                   <AnimatedProjectItem
                     key={`${categoryIndex}-${projectIndex}`}
                     delay={`${0.38 + categoryIndex * 0.16 + projectIndex * 0.12}s`}
-                    isSectionVisible={isVisible}
+                    isSectionVisible={isProjectSectionVisible}
                   >
                     {/* Project header: name/client on left, date on right */}
                     <div className="project-header">
