@@ -39,7 +39,7 @@ export const Experience = ({ isSwedish }) => {
   // Experience data using plain strings for safer, cleaner rendering
   const experiences = [
     {
-      title: 'Lead Software Engineer – Data Engineering & Automation (BIM)',
+      title: 'Senior Software Engineer – Data Engineering & Automation (BIM)',
       period: isSwedish ? '2021 – NUVARANDE' : '2021 – PRESENT',
       company: 'Structor smartBIM',
       description: isSwedish

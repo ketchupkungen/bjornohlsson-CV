@@ -128,7 +128,7 @@ export const Hero = ({ isSwedish }) => {
         <div className="info-grid info-grid-two">
           <div className="info-item">
             <span className="info-label">{isSwedish ? 'TITEL' : 'TITLE'}</span>
-            <span className="info-value">Lead Software Engineer - Data Engineering & Automation (BIM)</span>
+            <span className="info-value">Senior Software Engineer - Data Engineering & Automation (BIM)</span>
           </div>
           <div className="info-item">
             <span className="info-label">{isSwedish ? 'UTBILDNING' : 'EDUCATION'}</span>
