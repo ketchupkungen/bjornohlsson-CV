@@ -39,8 +39,26 @@ export const Experience = ({ isSwedish }) => {
   // Experience data using plain strings for safer, cleaner rendering
   const experiences = [
     {
+      title: isSwedish
+        ? 'Grundare & Senior Software Engineer / Digital Specialist'
+        : 'Founder & Senior Software Engineer / Digital Specialist',
+      period: isSwedish ? '2026 – NUVARANDE' : '2026 – PRESENT',
+      company: 'ProjectNEXT',
+      description: isSwedish
+        ? [
+            'Grundare av ProjectNEXT, där jag arbetar i gränslandet mellan BIM, GIS, datasamordning, visualisering, automation och mjukvaruutveckling för bygg-, anläggnings-, infrastruktur- och teknikprojekt.',
+            'Min roll handlar om att omsätta projektdata, processer och tekniska behov till praktiska digitala lösningar. Från strukturering och kvalitetssäkring av information till automatiserade arbetsflöden, interna verktyg, integrationer och applikationer.',
+            'Jag arbetar även med visualisering, rendering, fotomontage och presentationsmaterial som gör komplex projektinformation tydligare, mer kommunikativ och enklare att använda i beslutsprocesser och projektleveranser.'
+          ]
+        : [
+            'Founder of ProjectNEXT, where I work at the intersection of BIM, GIS, data coordination, visualization, automation, and software development for construction, civil engineering, infrastructure, and technology projects.',
+            'My role is about translating project data, processes, and technical needs into practical digital solutions. From structuring and quality-assuring information to automated workflows, internal tools, integrations, and applications.',
+            'I also work with visualization, rendering, photomontage, and presentation materials that make complex project information clearer, more communicative, and easier to use in decision processes and project deliveries.'
+          ]
+    },
+    {
       title: 'Senior Software Engineer – Data Engineering & Automation (BIM)',
-      period: isSwedish ? '2021 – NUVARANDE' : '2021 – PRESENT',
+      period: isSwedish ? '2021 – 2026' : '2021 – 2026',
       company: 'Structor smartBIM',
       description: isSwedish
         ? [
