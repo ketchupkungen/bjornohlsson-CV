@@ -44,7 +44,7 @@ export const Footer = ({ isSwedish }) => {
     <footer>
       <div className="container footer-content">
         <p className="footer-brand">© {currentYear} BJÖRN OHLSSON</p>
-        <p className="footer-role">Lead Software Engineer - Data Engineering & Automation (BIM)</p>
+        <p className="footer-role">Senior Software Engineer / Digital Specialist</p>
 
         <div className="footer-links" aria-label={isSwedish ? 'Kontaktlankar' : 'Contact links'}>
           <a className="footer-link-button" href="mailto:bjorn.ohlsson.93@gmail.com" aria-label="Email Björn Ohlsson">
