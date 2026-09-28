@@ -129,7 +129,7 @@ export const Project = ({ isSwedish }) => {
             },
             {
                 name: 'Applikation för konvertering av handritade ritningar',
-                client: 'Structor smartBIM',
+                client: 'Structor Mark Uppsala AB',
                 date: '2024 – 2025',
                 role: 'Senior Software Engineer & Administratör',
                 description: [
@@ -272,7 +272,7 @@ export const Project = ({ isSwedish }) => {
             },
             {
               name: 'Automated conversion of old hand-drawn drawings',
-              client: 'Structor smartBIM',
+              client: 'Structor Mark Uppsala AB',
               date: '2024 - 2025',
               role: 'Senior Software Engineer & Administrator',
               description: [
